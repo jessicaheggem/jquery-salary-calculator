@@ -25,8 +25,7 @@ function addEmployee(){
     let idNumber = $('#idNumberIn').val(); 
     let jobTitle = $('#jobTitleIn').val(); 
     let annualSalary = $('#annualSalaryIn').val();
-    let monthlySalary = $('#monthlySalariesIn').val();
-    //calculateMonthlySalaries(Number(annualSalary));
+    calculateMonthlySalaries(Number(annualSalary));
 
     idNumber = Number(idNumber);
     annualSalary = Number(annualSalary); // change string to number
@@ -45,7 +44,7 @@ function addEmployee(){
         `
     );
 
-    $('#monthlySalariesIn').append(`<p>${monthlySalary}</p>`);
+    $('#monthlySalariesIn').append(totalMonthlySalaries);
 
     //empty inputs
     $('#firstNameIn').val('');
