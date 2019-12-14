@@ -8,24 +8,30 @@ function handleReady(){
     
     // Delete click listener
     $('#salaryCalculator').on('click', '.deleteBtn', deleteEmployee);
+};
+
+let totalMonthlySalaries = 0;
+
+function calculateMonthlySalaries (salaryToAdd){
+    totalMonthlySalaries += salaryToAdd/12;
 }
 
 function addEmployee(){
     console.log('clicked add employee');
-    //get user input
+    //get input
 
     let firstName = $('#firstNameIn').val(); //getter 
-    let lastName = $('#lastNameIn').val(); //getter
-    let idNumber = $('#idNumberIn').val(); //getter
-    let jobTitle = $('#jobTitleIn').val(); //getter
-    let annualSalary = $('#annualSalaryIn').val(); //getter
+    let lastName = $('#lastNameIn').val();
+    let idNumber = $('#idNumberIn').val(); 
+    let jobTitle = $('#jobTitleIn').val(); 
+    let annualSalary = $('#annualSalaryIn').val();
+    let monthlySalary = $('#monthlySalariesIn').val();
+    //calculateMonthlySalaries(Number(annualSalary));
 
     idNumber = Number(idNumber);
     annualSalary = Number(annualSalary); // change string to number
     console.log(firstName, lastName, idNumber, jobTitle, annualSalary); //display input items in console
     
-
-    //append fish user enter
     $('#salaryCalculator').append(
         `
         <tr> 
@@ -33,22 +39,25 @@ function addEmployee(){
             <td>${lastName}</td>
             <td>${idNumber}</td>
             <td>${jobTitle}</td>
-            <td>${annualSalary}</td>
+            <td>$${annualSalary}</td>
             <td><button class="deleteBtn btn btn-danger">delete</button></td>
         </tr>
         `
     );
 
+    $('#monthlySalariesIn').append(`<p>${monthlySalary}</p>`);
+
     //empty inputs
-    $('#firstNameIn').val(''); //remove "let name =" from above, then  add '' in val() in order to empty inputs on DOM
+    $('#firstNameIn').val('');
     $('#lastNameIn').val(''); 
     $('#idNumberIn').val(''); 
     $('#jobTitleIn').val(''); 
     $('#annualSalaryIn').val(''); 
+};
 
-}
-
+//delete employee from list
 function deleteEmployee(){
     console.log('clicked delete');
-    $(this).closest('tr').remove(); //where did this event come from? what button did the user click on? that's what we want to remove
-}
+    $(this).closest('tr').remove(); 
+};
+

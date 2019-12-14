@@ -8,13 +8,14 @@
     <script src="client.js"></script> 
     <link rel="stylesheet" href="bootstrap.css">   
     <link rel="stylesheet" href="style.css">
-    <title>JQuery Salary Calculator</title>
+    <title>Salary Calculator</title>
 </head>
-<body>
-    <h1>JQuery Salary Calculator</h1>
+<body class="container">
+    <h1 class="jumbotron">Salary Calculator</h1>
     <main>
         <div>
             <!-- FORM -->
+            <h2>Add Employee</h2>
             <input id="firstNameIn" type="text" placeholder="First Name">
             <input id="lastNameIn" type="text" placeholder="Last Name">
             <input id="idNumberIn" type="text" placeholder="ID Number">
@@ -26,6 +27,8 @@
         <!-- TABLE -->
         <table class="table table-striped">
             <thead class="thead-dark">
+                    <h2>Employees</h2>
+
                 <!-- columns, column names -->
                 <tr> 
                     <th>First Name</th>
@@ -39,6 +42,7 @@
             <tbody id="salaryCalculator">
             </tbody>
         </table>
+        <h3 id="monthlySalariesIn">Monthly Salaries:</h3>
     </main>
 </body>
 </html>
