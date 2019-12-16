@@ -13,7 +13,10 @@ function handleReady(){
 let totalMonthlySalaries = 0;
 
 function calculateMonthlySalaries (salaryToAdd){
+    console.log('in calculateMonthlySalaries');
     totalMonthlySalaries += salaryToAdd/12;
+    console.log('total monthly salaries');
+    
 }
 
 function addEmployee(){
@@ -28,7 +31,7 @@ function addEmployee(){
     calculateMonthlySalaries(Number(annualSalary));
 
     idNumber = Number(idNumber);
-    annualSalary = Number(annualSalary); // change string to number
+    annualSalary = Number(annualSalary); // change strings to number
     console.log(firstName, lastName, idNumber, jobTitle, annualSalary); //display input items in console
     
     $('#salaryCalculator').append(
@@ -45,6 +48,8 @@ function addEmployee(){
     );
 
     $('#monthlySalariesIn').append(totalMonthlySalaries);
+    $('#monthlySalariesIn').empty('');
+    $('#monthlySalariesIn').append('Monthly Salaries: $', totalMonthlySalaries);
 
     //empty inputs
     $('#firstNameIn').val('');
@@ -52,6 +57,8 @@ function addEmployee(){
     $('#idNumberIn').val(''); 
     $('#jobTitleIn').val(''); 
     $('#annualSalaryIn').val(''); 
+    //$('#monthlySalariesIn').val(totalMonthlySalaries);
+
 };
 
 //delete employee from list
