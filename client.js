@@ -16,7 +16,7 @@ function calculateMonthlySalaries (salaryToAdd){
     console.log('in calculateMonthlySalaries');
     totalMonthlySalaries += salaryToAdd/12;
     console.log('total monthly salaries');
-    
+    redBackground();
 }
 
 function addEmployee(){
@@ -57,7 +57,6 @@ function addEmployee(){
     $('#idNumberIn').val(''); 
     $('#jobTitleIn').val(''); 
     $('#annualSalaryIn').val(''); 
-    //$('#monthlySalariesIn').val(totalMonthlySalaries);
 
 };
 
@@ -67,3 +66,8 @@ function deleteEmployee(){
     $(this).closest('tr').remove(); 
 };
 
+function redBackground(){
+    if (totalMonthlySalaries > 19999){
+        $('#monthlySalariesIn').addClass(`red`);
+    }
+}
