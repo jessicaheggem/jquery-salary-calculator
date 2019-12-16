@@ -67,7 +67,7 @@ function deleteEmployee(){
 };
 
 function redBackground(){
-    if (totalMonthlySalaries > 19999){
+    if (totalMonthlySalaries > 20000){
         $('#monthlySalariesIn').addClass(`red`);
     }
 }
